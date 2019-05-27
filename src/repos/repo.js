@@ -5,7 +5,7 @@ class Repo {
   }
 }
 
-function createRepo(name, url, lastPush = '') {
+function createRepo(name, url, lastPush = null) {
   if (!name || !url) {
     throw new Error('Must provide name and url.')
   }
