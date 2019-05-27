@@ -1,5 +1,14 @@
 const express = require('express')
 const app = express()
 require('./app')(app)
-const PORT = process.env.PORT || 8080
-app.listen(PORT)
+
+module.exports = {
+  start: (port) =>
+    new Promise((resolve, reject) => {
+      try {
+        app.listen(port, resolve)
+      } catch (error) {
+        reject(error)
+      }
+    }),
+}
