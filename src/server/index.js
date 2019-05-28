@@ -3,7 +3,7 @@ const app = express()
 require('./app')(app)
 
 module.exports = {
-  start: (port) =>
+  start: port =>
     new Promise((resolve, reject) => {
       try {
         app.listen(port, resolve)

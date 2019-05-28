@@ -8,6 +8,7 @@ module.exports = app => {
       res.set('Cache-Control', 'max-age=1800') // 30 minutes
       res.json(await presentRepoList.sortByLastPushAsc())
     } catch (error) {
+      console.error(error)
       res.status(500).json(error)
     }
   })

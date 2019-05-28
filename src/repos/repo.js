@@ -1,7 +1,8 @@
 class Repo {
   constructor(name, url, lastPush) {
     this.name = name
-    ;(this.url = url), (this.lastPush = lastPush)
+    this.url = url
+    this.lastPush = lastPush
   }
 }
 

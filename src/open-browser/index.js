@@ -13,7 +13,7 @@ module.exports = {
 }
 
 function getCommand() {
-  return process.platform === 'darwin' 
+  return process.platform === 'darwin'
     ? 'open'
     : process.platform === 'win32'
     ? 'start'
