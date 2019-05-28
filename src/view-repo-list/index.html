@@ -99,12 +99,16 @@
             .data(GITHUB_REPO_URL, url)
             .text(new Date(lastPush).toDateString())
 
-          const refreshTd$ = $('<td>')
-            .addClass(REFRESH_REPO)
-            .data(REPO_NAME, name)
-            .text('refresh')
+          const refreshTd$ = $('<td>').append(createRefreshButton())
 
           return $('<tr>').append(nameTd$, lastPushTd$, refreshTd$)
+
+          function createRefreshButton() {
+            return $('<button>')
+              .addClass(`${REFRESH_REPO} btn btn-secondary btn-sm`)
+              .data(REPO_NAME, name)
+              .text('⭮ Refresh')
+          }
         }
       })
     </script>
