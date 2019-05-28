@@ -2,7 +2,7 @@ const path = require('path')
 
 const presentRepoList = require('../view-repo-list/present-repo-list')
 
-module.exports = app => {
+module.exports = (app, { static }) => {
   app.get('/api/repos/:repoName', async (req, res) => {
     try {
       const { repoName } = req.params
@@ -24,9 +24,9 @@ module.exports = app => {
     }
   })
 
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../view-repo-list/index.html'), {
+  app.use(
+    static(path.join(__dirname, '../view-repo-list/public'), {
       maxAge: 360000, // one hour
     })
-  })
+  )
 }

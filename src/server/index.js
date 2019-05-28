@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-require('./app')(app)
+require('./app')(app, express)
 
 module.exports = {
   start: port =>
