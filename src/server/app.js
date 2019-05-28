@@ -3,6 +3,17 @@ const path = require('path')
 const presentRepoList = require('../view-repo-list/present-repo-list')
 
 module.exports = app => {
+  app.get('/api/repos/:repoName', async (req, res) => {
+    try {
+      const { repoName } = req.params
+      res.set('Cache-Control', 'max-age=60') // 1 minute
+      res.json(await presentRepoList.getRepo(repoName))
+    } catch (error) {
+      console.error(error)
+      res.status(500).json(error)
+    }
+  })
+
   app.get('/api/repos', async (req, res) => {
     try {
       res.set('Cache-Control', 'max-age=1800') // 30 minutes

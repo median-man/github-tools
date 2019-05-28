@@ -1,4 +1,11 @@
+exports.getRepo = getRepo
 exports.getAllRepos = getAllRepos
+
+async function getRepo(repoName, httpClient) {
+  const url = `https://api.github.com/repos/median-man/${repoName}`
+  const { data } = await httpClient.get(url)
+  return data
+}
 
 function getAllRepos(httpClient) {
   return async () => {
