@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/mocha --harmony ./src/**/*.test.js",
     "start": "node --harmony .",
     "lint": "./node_modules/.bin/eslint"
   },
@@ -15,10 +15,13 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "prettier": "1.17.1"
+    "mocha": "^6.1.4",
+    "prettier": "1.17.1",
+    "sinon": "^7.3.2"
   },
   "eslintConfig": {
     "extends": [
